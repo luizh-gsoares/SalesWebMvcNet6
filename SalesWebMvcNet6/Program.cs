@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvcNet6.Data;
+using Microsoft.Extensions.DependencyInjection;
 using Pomelo.EntityFrameworkCore.MySql;
+using SalesWebMvcNet6.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContext<SalesWebMvcNet6Context>(opts => opts.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcNet6Context"), new MySqlServerVersion(new Version(8, 0))));
-
+builder.Services.AddScoped<SellerService>();
 
 var app = builder.Build();
 

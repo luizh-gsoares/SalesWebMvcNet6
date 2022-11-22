@@ -22,7 +22,7 @@ namespace SalesWebMvcNet6.Controllers
         // GET: Departments
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Department.ToListAsync());
+            return View(await _context.Department.ToListAsync());
         }
 
         // GET: Departments/Details/5
@@ -148,14 +148,14 @@ namespace SalesWebMvcNet6.Controllers
             {
                 _context.Department.Remove(department);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepartmentExists(int id)
         {
-          return _context.Department.Any(e => e.Id == id);
+            return _context.Department.Any(e => e.Id == id);
         }
     }
 }
