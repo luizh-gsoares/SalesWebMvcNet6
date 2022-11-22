@@ -1,0 +1,34 @@
+﻿@model SalesWebMvcNet6.Models.Seller
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2 class="py-3">@ViewData["Title"]</h2>
+
+<!-- /.login-logo -->
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div class="form-group py-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group py-3">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="form-group py-3">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+            </div>
+            <div class="form-group py-3">
+                <label asp-for="BaseSalary" class="control-label"></label>
+                <input asp-for="BaseSalary" class="form-control" />
+            </div>
+
+            <div class="form-group py-3">
+                <input type="submit" value="Create" class="btn btn-success"/>
+            </div>
+        </form>
+    </div>
+</div>
