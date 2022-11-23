@@ -1,8 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalesWebMvcNet6.Data;
+using SalesWebMvcNet6.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using Pomelo.EntityFrameworkCore.MySql;
-using SalesWebMvcNet6.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// App Locale Options
+var enUs = new CultureInfo("en-US");
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(enUs),
+    SupportedCultures = new List<CultureInfo> { enUs },
+    SupportedUICultures = new List<CultureInfo> { enUs }
+};
+app.UseRequestLocalization(localizationOptions);
+
+// ----------------------
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
