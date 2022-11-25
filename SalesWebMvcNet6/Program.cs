@@ -15,6 +15,7 @@ builder.Services.AddDbContext<SalesWebMvcNet6Context>
     (opts => opts.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcNet6Context"), new MySqlServerVersion(new Version(8, 0))));
 builder.Services.AddScoped<SellerService>();
 builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<SalesRecordService>();
 
 var app = builder.Build();
 
